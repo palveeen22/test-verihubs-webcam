@@ -1,35 +1,49 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Icon } from "@iconify/react";
-import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import WebcamCapture from "../../components/WebcamCapture";
 
 const HomePage = () => {
-	const [clicked, setClicked] = useState(false as boolean);
+	const [clicked, setClicked] = useState<boolean>(false);
+	const [openCamera, setOpenCamera] = useState<boolean>(false);
 
 	const handleActive = () => {
 		setClicked(true);
 	};
+
+	const hanldeOpenCamera = () => {
+		setOpenCamera(true);
+	};
 	return clicked ? (
 		<>
-			<Navbar />
-			<div className="paddingX paddingY bg-[#282828] flex justify-around items-center w-full h-screen">
-				<div className="flex flex-col text-center gap-8">
-					<p className="text-[#fff] text-2xl">
-						Press the button to access your camera:
-					</p>
-					<button className="w-[50%] mx-auto px-4 py-4 bg-pink-600 flex items-center text-white text-base font-medium rounded-md mt-4 relative">
-						<div className="absolute left-0 top-0 bottom-0 bg-pink-700 px-3 flex items-center justify-center rounded-l-md">
-							{/* Make sure Icon is imported and used correctly */}
-							<Icon icon="gridicons:video-camera" width={40} />
+			{openCamera ? (
+				<WebcamCapture />
+			) : (
+				<>
+					<Navbar />
+					<div className="paddingX paddingY bg-[#282828] flex justify-around items-center w-full h-screen">
+						<div className="flex flex-col text-center gap-8">
+							<p className="text-[#fff] text-2xl">
+								Press the button to access your camera:
+							</p>
+							<button
+								onClick={hanldeOpenCamera}
+								className="w-[50%] mx-auto px-4 py-4 bg-pink-600 flex items-center text-white text-base font-medium rounded-md mt-4 relative"
+							>
+								<div className="absolute left-0 top-0 bottom-0 bg-pink-700 px-3 flex items-center justify-center rounded-l-md">
+									{/* Make sure Icon is imported and used correctly */}
+									<Icon icon="gridicons:video-camera" width={40} />
+								</div>
+								<span className="ml-16 text-xl font-normal">Use my camera</span>
+							</button>
+							<p className="text-[#ffffff96]">
+								Photos are not stored online unless you choose to share them.
+							</p>
 						</div>
-						<span className="ml-16 text-xl font-normal">Use my camera</span>
-					</button>
-					<p className="text-[#ffffff96]">
-						Photos are not stored online unless you choose to share them.
-					</p>
-				</div>
-			</div>
+					</div>
+				</>
+			)}
 		</>
 	) : (
 		<>
