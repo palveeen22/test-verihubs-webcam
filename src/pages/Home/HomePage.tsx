@@ -12,7 +12,7 @@ const HomePage = () => {
 		setClicked(true);
 	};
 
-	const hanldeOpenCamera = () => {
+	const handleOpenCamera = () => {
 		setOpenCamera(true);
 	};
 	return clicked ? (
@@ -28,7 +28,7 @@ const HomePage = () => {
 								Press the button to access your camera:
 							</p>
 							<button
-								onClick={hanldeOpenCamera}
+								onClick={handleOpenCamera}
 								className="w-[50%] mx-auto px-4 py-4 bg-pink-600 flex items-center text-white text-base font-medium rounded-md mt-4 relative"
 							>
 								<div className="absolute left-0 top-0 bottom-0 bg-pink-700 px-3 flex items-center justify-center rounded-l-md">
@@ -48,40 +48,54 @@ const HomePage = () => {
 	) : (
 		<>
 			<Navbar />
-			<main className="paddingX paddingY flex justify-around items-center w-full bg-[#f4f5f7] h-screen">
-				<img
-					src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
-					alt="Side Decoration"
-				/>
-
-				<div className="flex justify-center items-center gap-4">
-					<div className="flex flex-col justify-center gap-2 items-center">
+			<main className="paddingX paddingY  bg-[#f4f5f7] min-h-screen">
+				<section className="flex justify-around items-center w-full">
+					<div className="flex flex-col gap-4">
 						<img
-							src="https://webcamtoy.com/assets/images/title-mobile.png"
-							alt="Webcam Toy"
+							src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
+							alt="Side Decoration"
 						/>
-
-						<p className="text-center">
-							Take selfies with over 80 fun effects!
-						</p>
-
-						<button
-							onClick={handleActive}
-							className="w-[80%] mx-auto px-4 py-5 bg-pink-600 flex items-center text-white text-base font-medium rounded-md mt-4 relative"
-						>
-							<div className="absolute left-0 top-0 bottom-0 bg-pink-700 px-3 flex items-center justify-center rounded-l-md">
-								{/* Make sure Icon is imported and used correctly */}
-								<Icon icon="fluent:ios-arrow-right-24-filled" width={30} />
-							</div>
-							<span className="ml-12 text-xl font-normal">Ready? Smile!</span>
-						</button>
+						<img
+							src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
+							alt="Side Decoration"
+						/>
 					</div>
-				</div>
 
-				<img
-					src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
-					alt="Side Decoration"
-				/>
+					<div className="flex justify-center items-center gap-4">
+						<div className="flex flex-col justify-center gap-2 items-center">
+							<img
+								src="https://webcamtoy.com/assets/images/title-mobile.png"
+								alt="Webcam Toy"
+							/>
+
+							<p className="text-center">
+								Take selfies with over 80 fun effects!
+							</p>
+
+							<button
+								onClick={handleActive}
+								className="w-[80%] mx-auto px-4 py-5 bg-pink-600 flex items-center text-white text-base font-medium rounded-md mt-4 relative"
+							>
+								<div className="absolute left-0 top-0 bottom-0 bg-pink-700 px-3 flex items-center justify-center rounded-l-md">
+									{/* Make sure Icon is imported and used correctly */}
+									<Icon icon="fluent:ios-arrow-right-24-filled" width={30} />
+								</div>
+								<span className="ml-12 text-xl font-normal">Ready? Smile!</span>
+							</button>
+						</div>
+					</div>
+
+					<div className="flex flex-col gap-4">
+						<img
+							src="https://webcamtoy.com/assets/photos/A5VlXQJCIAEpXh5.jpg"
+							alt="Side Decoration"
+						/>
+						<img
+							src="https://webcamtoy.com/assets/photos/A5VlXQJCIAEpXh5.jpg"
+							alt="Side Decoration"
+						/>
+					</div>
+				</section>
 			</main>
 			<Footer />
 		</>
