@@ -1,20 +1,10 @@
-import { useState } from "react";
-
-import "./App.css";
-import CustomWebcam from "./components/CustomWebcam";
+import { RouterProvider } from "react-router-dom";
+import router from "./router/router";
 
 function App() {
-	const [isActive, setIsActive] = useState(false as Boolean);
 	return (
 		<>
-			<div className="App">
-				<button
-					onClick={() => {
-						setIsActive(true);
-					}}
-				></button>
-				{isActive ? <CustomWebcam /> : ""}
-			</div>
+			<RouterProvider router={router} />
 		</>
 	);
 }

@@ -9,11 +9,16 @@ const CustomWebcam = () => {
 	// create a capture function
 	const capture = useCallback(() => {
 		const imageSrc = webcamRef.current.getScreenshot();
-		setImgSrc(imageSrc);
+		setImgSrc(imageSrc ?? "");
 	}, [webcamRef]);
 
 	const retake = () => {
 		setImgSrc(null);
+	};
+	const videoConstraints = {
+		width: 1280,
+		height: 720,
+		facingMode: "user",
 	};
 
 	return (
