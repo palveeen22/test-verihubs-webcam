@@ -1,9 +1,9 @@
 import { useRef, useState, useCallback } from "react";
 import Webcam from "react-webcam";
 import { Icon } from "@iconify/react";
-import { Effect } from "@cloudinary/url-gen/actions/effect";
+// import { Effect } from "@cloudinary/url-gen/actions/effect";
 // import { artisticFilter } from "@cloudinary/url-gen/actions/effect";
-import { Cloudinary } from "@cloudinary/url-gen";
+// import { Cloudinary } from "@cloudinary/url-gen";
 
 const videoConstraints = {
 	width: 720,
@@ -25,42 +25,42 @@ const WebcamCapture: React.FC = () => {
 		setImage(imageSrc ?? "");
 	}, [webcamRef]);
 
-	const cloudinary = new Cloudinary({ cloud: { cloudName: "dgwxqtnvz" } });
+	// const cloudinary = new Cloudinary({ cloud: { cloudName: "dgwxqtnvz" } });
 
-	const filters: string[] = [
-		"none",
-		"artistic",
-		"sepia",
-		"cartoonify",
-		"vignette",
-		"oilpaint",
-		"grayscale",
-		"vectorize",
-		"pixelate",
-	];
+	// const filters: string[] = [
+	// 	"none",
+	// 	"artistic",
+	// 	"sepia",
+	// 	"cartoonify",
+	// 	"vignette",
+	// 	"oilpaint",
+	// 	"grayscale",
+	// 	"vectorize",
+	// 	"pixelate",
+	// ];
 
-	function applyFilter(filter: string, image: any) {
-		switch (filter) {
-			case "artistic":
-				return image.effect(Effect.artisticFilter("fes"));
-			case "sepia":
-				return image.effect(Effect.sepia());
-			case "cartoonify":
-				return image.effect(Effect.cartoonify());
-			case "vignette":
-				return image.effect(Effect.vignette());
-			case "oilpaint":
-				return image.effect(Effect.oilPaint());
-			case "grayscale":
-				return image.effect(Effect.grayscale());
-			case "vectorize":
-				return image.effect(Effect.vectorize());
-			case "pixelate":
-				return image.effect(Effect.pixelate());
-			default:
-				return image;
-		}
-	}
+	// function applyFilter(filter: string, image: any) {
+	// 	switch (filter) {
+	// 		case "artistic":
+	// 			return image.effect(Effect.artisticFilter("fes"));
+	// 		case "sepia":
+	// 			return image.effect(Effect.sepia());
+	// 		case "cartoonify":
+	// 			return image.effect(Effect.cartoonify());
+	// 		case "vignette":
+	// 			return image.effect(Effect.vignette());
+	// 		case "oilpaint":
+	// 			return image.effect(Effect.oilPaint());
+	// 		case "grayscale":
+	// 			return image.effect(Effect.grayscale());
+	// 		case "vectorize":
+	// 			return image.effect(Effect.vectorize());
+	// 		case "pixelate":
+	// 			return image.effect(Effect.pixelate());
+	// 		default:
+	// 			return image;
+	// 	}
+	// }
 
 	// function FilterItem({ imgId, setPrevURL, filterName }) {
 	// 	let image = cloudinary.image(imgId);
