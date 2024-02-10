@@ -18,7 +18,10 @@ const HomePage = () => {
 	return clicked ? (
 		<>
 			{openCamera ? (
-				<WebcamCapture />
+				<>
+					<Navbar />
+					<WebcamCapture />
+				</>
 			) : (
 				<>
 					<Navbar />
@@ -48,20 +51,19 @@ const HomePage = () => {
 	) : (
 		<>
 			<Navbar />
-			<main className="paddingX paddingY  bg-[#f4f5f7] min-h-screen">
-				<section className="flex justify-around items-center w-full">
-					<div className="flex flex-col gap-4">
-						<img
-							src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
-							alt="Side Decoration"
-						/>
-						<img
-							src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
-							alt="Side Decoration"
-						/>
-					</div>
-
-					<div className="flex justify-center items-center gap-4">
+			<main className="paddingX bg-[#f4f5f7]">
+				<div className="hidden md:block lg:block">
+					<div className="flex justify-around items-center w-full min-h-screen">
+						<div className="flex flex-col gap-4">
+							<img
+								src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
+								alt="Side Decoration"
+							/>
+							<img
+								src="https://webcamtoy.com/assets/photos/A6kgDQACYAAFRmC.jpg"
+								alt="Side Decoration"
+							/>
+						</div>
 						<div className="flex flex-col justify-center gap-2 items-center">
 							<img
 								src="https://webcamtoy.com/assets/images/title-mobile.png"
@@ -71,31 +73,63 @@ const HomePage = () => {
 							<p className="text-center">
 								Take selfies with over 80 fun effects!
 							</p>
-
-							<button
-								onClick={handleActive}
-								className="w-[80%] mx-auto px-4 py-5 bg-pink-600 flex items-center text-white text-base font-medium rounded-md mt-4 relative"
+							<div
+								className="flex justify-start gap-2 w-[60%] md:w-[70%]  mx-auto  bg-pink-600 items-center
+							text-white text-base font-medium rounded-md mt-4"
 							>
-								<div className="absolute left-0 top-0 bottom-0 bg-pink-700 px-3 flex items-center justify-center rounded-l-md">
-									{/* Make sure Icon is imported and used correctly */}
+								<div
+									className="w-[25%] bg-pink-700 py-4 rounded-l-md
+
+"
+								>
 									<Icon icon="fluent:ios-arrow-right-24-filled" width={30} />
 								</div>
-								<span className="ml-12 text-xl font-normal">Ready? Smile!</span>
-							</button>
+								<button onClick={handleActive}>
+									<span className="text-xl font-normal">Ready? Smile!</span>
+								</button>
+							</div>
+						</div>
+						<div className="flex flex-col gap-4">
+							<img
+								src="https://webcamtoy.com/assets/photos/A5VlXQJCIAEpXh5.jpg"
+								alt="Side Decoration"
+							/>
+							<img
+								src="https://webcamtoy.com/assets/photos/A5VlXQJCIAEpXh5.jpg"
+								alt="Side Decoration"
+							/>
 						</div>
 					</div>
+				</div>
+				<div className="block md:hidden lg:hidden">
+					<div className="flex justify-around items-center w-full min-h-screen">
+						<div className="flex flex-col justify-center gap-2 items-center">
+							<img
+								src="https://webcamtoy.com/assets/images/title-mobile.png"
+								alt="Webcam Toy"
+							/>
 
-					<div className="flex flex-col gap-4">
-						<img
-							src="https://webcamtoy.com/assets/photos/A5VlXQJCIAEpXh5.jpg"
-							alt="Side Decoration"
-						/>
-						<img
-							src="https://webcamtoy.com/assets/photos/A5VlXQJCIAEpXh5.jpg"
-							alt="Side Decoration"
-						/>
+							<p className="text-center">
+								Take selfies with over 80 fun effects!
+							</p>
+							<div
+								className="flex justify-start gap-2 w-[80%] mx-auto  bg-pink-600 items-center
+							text-white text-base font-medium rounded-md mt-4 cursor-pointer"
+							>
+								<div
+									className="w-[25%] bg-pink-700 py-4 rounded-l-md
+
+"
+								>
+									<Icon icon="fluent:ios-arrow-right-24-filled" width={30} />
+								</div>
+								<button onClick={handleActive}>
+									<span className="text-xl font-normal">Ready? Smile!</span>
+								</button>
+							</div>
+						</div>
 					</div>
-				</section>
+				</div>
 			</main>
 			<Footer />
 		</>

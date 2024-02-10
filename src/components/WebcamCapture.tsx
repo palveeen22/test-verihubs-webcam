@@ -1,9 +1,9 @@
 import { useRef, useState, useCallback } from "react";
 import Webcam from "react-webcam";
-import { Button } from "./ui/button";
-import { Cloudinary } from "@cloudinary/url-gen";
+import { Icon } from "@iconify/react";
 import { Effect } from "@cloudinary/url-gen/actions/effect";
-import { artisticFilter } from "@cloudinary/url-gen/actions/effect";
+// import { artisticFilter } from "@cloudinary/url-gen/actions/effect";
+import { Cloudinary } from "@cloudinary/url-gen";
 
 const videoConstraints = {
 	width: 720,
@@ -15,20 +15,19 @@ const WebcamCapture: React.FC = () => {
 	const webcamRef = useRef<Webcam>(null);
 	const [image, setImage] = useState<string>();
 	const [mirrored, setMirrored] = useState<boolean>(false);
-	const [prevURL, setPrevURL] = useState<string>("");
+	// const [prevURL, setPrevURL] = useState<string>("");
+	// const [id, setId] = useState<string>("");
 
-	const [filter, setFilter] = useState<string>("");
+	// const [filter, setFilter] = useState<string>("");
 
 	const capture = useCallback(() => {
 		const imageSrc = webcamRef.current?.getScreenshot();
 		setImage(imageSrc ?? "");
 	}, [webcamRef]);
 
-	// if (filter) {
-	// 	cloudIma
-	// }
+	const cloudinary = new Cloudinary({ cloud: { cloudName: "dgwxqtnvz" } });
 
-	const ART_FILTERS: string[] = [
+	const filters: string[] = [
 		"none",
 		"artistic",
 		"sepia",
@@ -64,7 +63,7 @@ const WebcamCapture: React.FC = () => {
 	}
 
 	// function FilterItem({ imgId, setPrevURL, filterName }) {
-	// 	let image = cld.image(imgId);
+	// 	let image = cloudinary.image(imgId);
 	// 	image = applyFilter(filterName, image);
 	// 	const imgURL = image.toURL();
 	// 	return (
@@ -75,88 +74,55 @@ const WebcamCapture: React.FC = () => {
 	// 	);
 	// }
 
-	// const ART_FILTERS: string[] = [
-	// 	"al_dente",
-	// 	"athena",
-	// 	"audrey",
-	// 	"aurora",
-	// 	"daguerre",
-	// 	"eucalyptus",
-	// 	"fes",
-	// 	"frost",
-	// 	"hairspray",
-	// 	"hokusai",
-	// 	"incognito",
-	// 	"linen",
-	// 	"peacock",
-	// 	"primavera",
-	// 	"quartz",
-	// 	"red_rock",
-	// 	"refresh",
-	// 	"sizzle",
-	// 	"sonnet",
-	// 	"ukulele",
-	// 	"zorro",
-	// ];
-
 	return (
-		<div className="paddingY bg-[#282828] flex flex-col items-center gap-4 mx-auto min-h-screen">
-			{/* <Webcam
+		<div className="paddingX bg-[#282828] flex flex-col items-center gap-4 mx-auto min-h-screen">
+			<Webcam
 				audio={false}
-				height={360}
+				height={3000}
 				ref={webcamRef}
 				screenshotFormat="image/jpeg"
-				width={720}
+				width={3000}
 				mirrored={mirrored}
 				videoConstraints={videoConstraints}
-				className="rounded-md"
-			/> */}
-			<div className="flex gap-2 items-center mt-3">
-				<Button
-					onClick={capture}
-					variant="outline"
-					className=" bg-blue-500 hover:bg-blue-700"
+				className="rounded-md relative"
+			/>
+			<div className="absolute bottom-52 flex justify-around w-full">
+				{/* <div className="flex gap-2 items-center mt-3"> */}
+				<button
+					onClick={() => setImage(undefined)}
+					className="bg-pink-600 px-6 py-1 rounded-md shadow-md text-white text-xl"
 				>
-					Capture
-				</Button>
-				<Button onClick={() => setImage(undefined)} variant="destructive">
 					Reset
-				</Button>
-			</div>
-			<div className="controls">
-				<div>
+				</button>
+				<div className="bg-pink-600 px-6 py-1 rounded-md shadow-md text-white text-xl flex justify-center gap-5 items-center">
 					<input
 						type="checkbox"
 						checked={mirrored}
 						onChange={(e) => setMirrored(e.target.checked)}
+						className="cursor-pointer"
 					/>
 					<label>Mirror</label>
 				</div>
-			</div>
-			<div className="grid grid-cols-4 gap-4">
-				{ART_FILTERS.map((art) => {
-					return (
-						<div key={art}>
-							<Button
-								onClick={() => setFilter(art)}
-								className=" bg-blue-500 hover:bg-blue-700"
-							>
-								{art}
-							</Button>
-						</div>
-					);
-				})}
-
-				{/* <>
-					{ART_FILTERS.map((filter, index) => (
-						<FilterItem
-							imgId={id}
-							filterName={filter}
-							setPrevURL={setPrevURL}
-							key={index}
-						/>
-					))}
-				</> */}
+				{/* <div className="grid grid-cols-4 gap-4">
+					{filters.map((art) => {
+						return (
+							<div key={art}>
+								<button
+									// onClick={() => setFilter(art)}
+									className=" bg-blue-500 hover:bg-blue-700"
+								>
+									{art}
+								</button>
+							</div>
+						);
+					})}
+				</div> */}
+				<button
+					onClick={capture}
+					className="bg-pink-600 px-6 py-1 rounded-md shadow-md"
+				>
+					<Icon icon="heroicons:camera-16-solid" width={40} color="#fff" />
+				</button>
 			</div>
 
 			{image && (
