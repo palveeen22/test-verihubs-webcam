@@ -1,6 +1,6 @@
 # verihubs-webcam-test
 
-This is a simple guide to help you get started with setting up and running **My Awesome App**. It's built using Vite, React, and TypeScript.
+This is a simple guide to help you get started with setting up and running react webcam app. It's built using Vite, React, and TypeScript.
 
 ## Features
 
