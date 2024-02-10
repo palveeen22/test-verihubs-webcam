@@ -25,8 +25,6 @@ Before you begin, ensure you have met the following requirements:
 
    ```bash
    cd test-verihubs-webcam
-   
-   ```bash
    npm install
 
 3. Run the App:
