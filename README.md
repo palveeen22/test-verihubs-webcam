@@ -7,10 +7,6 @@
 
 This is a simple guide to help you get started with setting up and running react webcam app. It's built using Vite, React, and TypeScript.
 
-![Website](![Uploading Screenshot 2024-02-11 at 23.37.33.png…]()
-)
-
-
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
