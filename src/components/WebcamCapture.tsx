@@ -101,9 +101,7 @@ const WebcamCapture: React.FC = () => {
 				>
 					Reset
 				</button>
-				<div
-					className="bg-pink-600 px-6 py-1 rounded-md shadow-md text-white text-xl flex justify-center gap-5 items-center"
-				>
+				<div className="bg-pink-600 px-6 py-1 rounded-md shadow-md text-white text-xl flex justify-center gap-5 items-center">
 					<input
 						type="checkbox"
 						checked={mirrored}

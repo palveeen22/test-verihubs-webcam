@@ -11,15 +11,18 @@ const WebcamWithEffects: React.FC = () => {
 				let capture: p5.Element;
 
 				p.setup = () => {
-					p.createCanvas(640, 480);
+					// Set canvas to full window size
+					p.createCanvas(window.innerWidth, window.innerHeight);
 					// @ts-ignore
 					capture = p.createCapture(p.VIDEO);
-					capture.size(640, 480);
+					// Set capture size to full window size for consistency
+					capture.size(window.innerWidth, window.innerHeight);
 					capture.hide(); // Hide the HTML video element
 				};
 
 				p.draw = () => {
-					p.image(capture, 0, 0, 640, 480);
+					// Draw the capture on the canvas covering the full window
+					p.image(capture, 0, 0, window.innerWidth, window.innerHeight);
 					if (invert) {
 						p.filter(p.INVERT);
 					}
@@ -37,7 +40,7 @@ const WebcamWithEffects: React.FC = () => {
 	return (
 		<section className="flex justify-center items-center min-h-screen">
 			<div className="flex-col gap-4">
-				<div ref={sketchRef}></div> {/* This div will contain the p5 canvas */}
+				<div ref={sketchRef}></div>
 				<button
 					className="bg-pink-600 px-6 py-1 rounded-md mx-auto shadow-md text-white text-xl flex justify-center gap-5 items-center"
 					onClick={() => setInvert(!invert)}
