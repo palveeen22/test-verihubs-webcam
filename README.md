@@ -2,12 +2,12 @@
 
  inspired by webcamtoy.com 
 
+ - Simple webcam web app using React Js.
+- Filter and effect webcam.
+
 This is a simple guide to help you get started with setting up and running react webcam app. It's built using Vite, React, and TypeScript.
 
-## Features
-
-- Simple webcam web app using React Js.
-- Filter and effect webcam.
+![Website]()
 
 
 ## Prerequisites
@@ -15,6 +15,11 @@ This is a simple guide to help you get started with setting up and running react
 Before you begin, ensure you have met the following requirements:
 
 - Node.js and npm installed on your local.
+
+### Features
+- webcam and capture
+- save and copy capture
+- invert effect 
 
 ## Installation
 
