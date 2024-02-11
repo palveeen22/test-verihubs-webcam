@@ -12,7 +12,7 @@ This is a simple guide to help you get started with setting up and running react
 
 Before you begin, ensure you have met the following requirements:
 
-- Node.js and npm installed on your local machine.
+- Node.js and npm installed on your local.
 
 ## Installation
 
@@ -31,4 +31,5 @@ Before you begin, ensure you have met the following requirements:
 
    ```bash
    npm run dev
+   
 
