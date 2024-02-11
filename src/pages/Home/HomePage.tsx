@@ -3,7 +3,6 @@ import { Icon } from "@iconify/react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import WebcamCapture from "../../components/WebcamCapture";
-import WebcamWithEffects from "../../components/WebcamWithEffects";
 
 const HomePage = () => {
 	const [clicked, setClicked] = useState<boolean>(false);
@@ -13,18 +12,17 @@ const HomePage = () => {
 		setClicked(true);
 	};
 
-	const handleOpenCamera = () => {
+	const handleToogleCamera = () => {
 		setOpenCamera(true);
 	};
+
 	return clicked ? (
 		<>
 			{openCamera ? (
 				<>
 					<Navbar />
-					<WebcamCapture />
 
-					{/* for using filters */}
-					<WebcamWithEffects />
+					<WebcamCapture />
 				</>
 			) : (
 				<>
@@ -35,7 +33,7 @@ const HomePage = () => {
 								Press the button to access your camera:
 							</p>
 							<button
-								onClick={handleOpenCamera}
+								onClick={handleToogleCamera}
 								className="w-[50%] mx-auto px-4 py-4 bg-pink-600 flex items-center text-white text-base font-medium rounded-md mt-4 relative"
 							>
 								<div className="absolute left-0 top-0 bottom-0 bg-pink-700 px-3 flex items-center justify-center rounded-l-md">

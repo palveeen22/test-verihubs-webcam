@@ -38,11 +38,11 @@ const WebcamWithEffects: React.FC = () => {
 	}, [invert]); // Effect depends on the invert state
 
 	return (
-		<section className="flex justify-center items-center min-h-screen">
+		<section className="flex justify-around items-center min-h-screen">
 			<div className="flex-col gap-4">
 				<div ref={sketchRef}></div>
 				<button
-					className="bg-pink-600 px-6 py-1 rounded-md mx-auto shadow-md text-white text-xl flex justify-center gap-5 items-center"
+					className="bg-pink-600 m-6 px-6 py-1 rounded-md mx-auto shadow-md text-white text-xl flex justify-center gap-5 items-center"
 					onClick={() => setInvert(!invert)}
 				>
 					{invert ? "Disable Invert" : "Enable Invert"}
