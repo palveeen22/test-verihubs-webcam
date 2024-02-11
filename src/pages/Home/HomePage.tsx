@@ -22,6 +22,8 @@ const HomePage = () => {
 				<>
 					<Navbar />
 					<WebcamCapture />
+
+					{/* for using filters */}
 					<WebcamWithEffects />
 				</>
 			) : (
