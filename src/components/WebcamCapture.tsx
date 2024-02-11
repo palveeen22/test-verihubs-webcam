@@ -1,6 +1,9 @@
 import { useRef, useState, useCallback } from "react";
 import Webcam from "react-webcam";
 import { Icon } from "@iconify/react";
+import { pixelate } from "@cloudinary/url-gen/actions/effect";
+import { CloudinaryImage } from "@cloudinary/url-gen";
+
 // import { Effect } from "@cloudinary/url-gen/actions/effect";
 // import { artisticFilter } from "@cloudinary/url-gen/actions/effect";
 // import { Cloudinary } from "@cloudinary/url-gen";
@@ -74,6 +77,10 @@ const WebcamCapture: React.FC = () => {
 	// 	);
 	// }
 
+	if (image) {
+		new CloudinaryImage(image).effect(pixelate().squareSize(20));
+	}
+
 	return (
 		<div className="paddingX bg-[#282828] flex flex-col items-center gap-4 mx-auto min-h-screen">
 			<Webcam
@@ -94,7 +101,9 @@ const WebcamCapture: React.FC = () => {
 				>
 					Reset
 				</button>
-				<div className="bg-pink-600 px-6 py-1 rounded-md shadow-md text-white text-xl flex justify-center gap-5 items-center">
+				<div
+					className="bg-pink-600 px-6 py-1 rounded-md shadow-md text-white text-xl flex justify-center gap-5 items-center"
+				>
 					<input
 						type="checkbox"
 						checked={mirrored}
