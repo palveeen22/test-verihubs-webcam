@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import WebcamCapture from "../../components/WebcamCapture";
+import WebcamWithEffects from "../../components/WebcamWithEffects";
 
 const HomePage = () => {
 	const [clicked, setClicked] = useState<boolean>(false);
@@ -21,6 +22,9 @@ const HomePage = () => {
 				<>
 					<Navbar />
 					<WebcamCapture />
+
+					{/* for using filters */}
+					<WebcamWithEffects />
 				</>
 			) : (
 				<>
